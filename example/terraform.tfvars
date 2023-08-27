@@ -19,11 +19,11 @@ servers = {
     }
     ssh_keys = ["key_name_1", "key_name_2"]
   }
-  server_with_configration = {
+  server_with_configurator = {
     location      = "ru-1",
     cpu_frequency = 3.3,
     disk_type     = "nvme",
-    configuration = {
+    configurator = {
       cpu  = 1
       ram  = 4
       disk = 5

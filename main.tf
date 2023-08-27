@@ -37,7 +37,7 @@ data "twc_ssh_keys" "default" {
 }
 
 data "twc_configurator" "default" {
-  count = var.configuration != null ? 1 : 0
+  count = var.configurator != null ? 1 : 0
 
   location      = var.location
   cpu_frequency = var.cpu_frequency
@@ -54,7 +54,7 @@ resource "twc_server" "default" {
   ssh_keys_ids = local.ssh_keys_ids
 
   dynamic "configuration" {
-    for_each = var.configuration == null ? [] : [var.configuration]
+    for_each = var.configurator == null ? [] : [var.configurator]
 
     content {
       configurator_id = local.configurator_id

@@ -64,8 +64,8 @@ variable "preset" {
   default = null
 }
 
-variable "configuration" {
-  description = "Settings for the server with configuration"
+variable "configurator" {
+  description = "Settings for the server with configurator"
 
   type = object({
     cpu  = number
