@@ -10,6 +10,6 @@ module "server" {
   disk_type     = each.value.disk_type
 
   preset        = each.value.preset
-  configuration = each.value.configuration
+  configurator = each.value.configurator
   ssh_keys      = each.value.ssh_keys
 }

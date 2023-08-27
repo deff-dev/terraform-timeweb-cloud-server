@@ -68,13 +68,13 @@ module "server" {
 
 ```hcl
 #
-# With configuration
+# With configurator
 #
 
 module "server" {
   source = "git@github.com:deff-dev/terraform-timeweb-server.git"
 
-  name = "Single-configuration"
+  name = "Single-configurator"
   os = {
     name    = "ubuntu"
     version = "22.04"
@@ -83,7 +83,7 @@ module "server" {
   cpu_frequency = 3.3
   disk_type     = "nvme"
 
-  configuration = {
+  configurator = {
     cpu  = 1
     ram  = 4
     disk = 5
@@ -99,7 +99,7 @@ module "server" {
 
 ## 📝 Notes <a name = "notes"></a>
 
-- Can select only [preset](https://github.com/deff-dev/terraform-timeweb-server#input_preset) or [configuration](https://github.com/deff-dev/terraform-timeweb-server#input_configuration) for one server
+- Can select only [preset](https://github.com/deff-dev/terraform-timeweb-server#input_preset) or [configurator](https://github.com/deff-dev/terraform-timeweb-server#input_configurator) for one server
 
 ## 📋 Requirements <a name = "requirements"></a>
 
@@ -138,7 +138,7 @@ No modules.
 | <a name="input_cpu_frequency"></a> [cpu\_frequency](#input\_cpu\_frequency) | Current CPU frequency of server (2.8, 3.3, 5) | `number` | `3.3` | no |
 | <a name="input_disk_type"></a> [disk\_type](#input\_disk_\type) | Disk type for the created server (ssd, nvme, hdd) | `string` | `null` | no |
 | <a name="input_preset"></a> [preset](#input\_preset) | Settings for the server with preset | `object` | `null` | no |
-| <a name="input_configuration"></a> [configuration](#input\_configuration) | Settings for the server with configuration | `object` | `null` | no |
+| <a name="input_configurator"></a> [configurator](#input\_configurator) | Settings for the server with configurator | `object` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | List of names SSH Keys for server | `list(string)` | `null` | no |
 
 ## 📤 Outputs <a name = "outputs"></a>

@@ -21,7 +21,7 @@ variable "servers" {
 
     ssh_keys = optional(list(string))
 
-    configuration = optional(object({
+    configurator = optional(object({
       cpu  = number
       ram  = number
       disk = number
