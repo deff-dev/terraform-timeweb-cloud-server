@@ -105,7 +105,7 @@ module "server" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](https://www.terraform.io/) | >= 1.0 |
+| <a name="requirement_terraform"></a> [terraform](https://www.terraform.io/) | >= 1.3 |
 | <a name="requirement_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 0.0.14 |
 
 ## ☁️ Providers <a name = "providers"></a>
@@ -133,7 +133,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_name"></a> [name](#input\_name) | Name for server | `string` | `"Managed by terraform"` | yes |
-| <a name="input_os"></a> [os](#input\_os) | Information about specified OS | `object` | `null` | yes |
+| <a name="input_os"></a> [os](#input\_os) | Information about specified OS | `object` |  <pre>{<br>  "name": "ubuntu",<br>  "version": "22.04" <br>}</pre> | yes |
 | <a name="input_location"></a> [location](#input\_location) | Location for the server (ru-1, ru-2, pl-1, kz-1)| `string` | `null` | no |
 | <a name="input_cpu_frequency"></a> [cpu\_frequency](#input\_cpu\_frequency) | Current CPU frequency of server (2.8, 3.3, 5) | `number` | `3.3` | no |
 | <a name="input_disk_type"></a> [disk\_type](#input\_disk_\type) | Disk type for the created server (ssd, nvme, hdd) | `string` | `null` | no |
