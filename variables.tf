@@ -48,6 +48,8 @@ variable "disk_type" {
 }
 
 variable "preset" {
+  description = "Settings for the server with preset"
+
   type = object({
     cpu  = number
     ram  = number
@@ -63,6 +65,8 @@ variable "preset" {
 }
 
 variable "configuration" {
+  description = "Settings for the server with configuration"
+
   type = object({
     cpu  = number
     ram  = number
