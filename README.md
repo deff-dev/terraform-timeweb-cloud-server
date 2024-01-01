@@ -106,13 +106,13 @@ module "server" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](https://www.terraform.io/) | >= 1.3 |
-| <a name="requirement_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 0.0.14 |
+| <a name="requirement_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 1.1.0 |
 
 ## ☁️ Providers <a name = "providers"></a>
 
 | Name | Version |
 |------|---------|
-| <a name="provider_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 0.0.14 |
+| <a name="provider_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 1.1.0 |
 
 ## 📦 Modules <a name = "modules"></a>
 
