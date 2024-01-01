@@ -12,4 +12,5 @@ module "server" {
   preset        = each.value.preset
   configurator = each.value.configurator
   ssh_keys      = each.value.ssh_keys
+  cloud_init = each.value.cloud_init
 }

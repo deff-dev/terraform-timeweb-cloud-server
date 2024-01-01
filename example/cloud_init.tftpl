@@ -1,0 +1,9 @@
+#!/bin/sh
+
+## Ставим nginx
+
+apt -y update
+apt -y install ${package_web}
+
+## Ставим php
+apt -y install ${php_version}
