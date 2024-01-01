@@ -18,6 +18,13 @@ servers = {
       version = "22.04"
     }
     ssh_keys = ["key_name_1", "key_name_2"]
+    cloud_init = {
+      file = "cloud_init.tftpl"
+      vars = {
+        package_web = "nginx"
+        php_version = 8.2
+      }
+    }
   }
   server_with_configurator = {
     location      = "ru-1",

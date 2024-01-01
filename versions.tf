@@ -4,7 +4,7 @@ terraform {
   required_providers {
     twc = {
       source  = "timeweb-cloud/timeweb-cloud"
-      version = ">= 0.0.14"
+      version = ">= 1.1.0"
     }
   }
 }

@@ -2,6 +2,8 @@ locals {
   preset_id       = try(data.twc_presets.default[0].id, null)
   configurator_id = try(data.twc_configurator.default[0].id, null)
   ssh_keys_ids    = [for key in data.twc_ssh_keys.default : key.id]
+  cloud_init      = var.cloud_init == null ? "" : templatefile(var.cloud_init.file, local.cloud_init_vars)
+  cloud_init_vars = try(var.cloud_init.vars == null ? {} : var.cloud_init.vars, {})
 }
 
 data "twc_os" "default" {
@@ -52,6 +54,8 @@ resource "twc_server" "default" {
   os_id = data.twc_os.default.id
 
   ssh_keys_ids = local.ssh_keys_ids
+
+  cloud_init = local.cloud_init
 
   dynamic "configuration" {
     for_each = var.configurator == null ? [] : [var.configurator]

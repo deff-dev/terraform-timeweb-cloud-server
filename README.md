@@ -63,6 +63,14 @@ module "server" {
   }
 
   ssh_keys = ["key_name_1", "key_name_2"]
+
+  cloud_init = {
+    file = "cloud_init.tftpl"
+    vars = {
+      package_web = "nginx"
+      php_version = 8.2
+    }
+  }
 }
 ```
 
@@ -90,6 +98,14 @@ module "server" {
   }
 
   ssh_keys = ["key_name_1", "key_name_2"]
+
+  cloud_init = {
+    file = "cloud_init.tftpl"
+    vars = {
+      package_web = "nginx"
+      php_version = 8.2
+    }
+  }
 }
 ```
 
@@ -106,13 +122,13 @@ module "server" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](https://www.terraform.io/) | >= 1.3 |
-| <a name="requirement_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 0.0.14 |
+| <a name="requirement_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 1.1.0 |
 
 ## ☁️ Providers <a name = "providers"></a>
 
 | Name | Version |
 |------|---------|
-| <a name="provider_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 0.0.14 |
+| <a name="provider_timeweb-cloud"></a> [timeweb-cloud](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/) | >= 1.1.0 |
 
 ## 📦 Modules <a name = "modules"></a>
 
@@ -140,6 +156,7 @@ No modules.
 | <a name="input_preset"></a> [preset](#input\_preset) | Settings for the server with preset | `object` | `null` | no |
 | <a name="input_configurator"></a> [configurator](#input\_configurator) | Settings for the server with configurator | `object` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | List of names SSH Keys for server | `list(string)` | `null` | no |
+| <a name="input_cloud_init"></a> [cloud\_init](#input\_cloud\_init) | Cloud-init script | `object` | `null` | no |
 
 ## 📤 Outputs <a name = "outputs"></a>
 
@@ -149,6 +166,7 @@ No modules.
 | <a name="output_server_public_ip"></a> [server_public_ip](#output\_server\_public\_ip) | Return server public IP |
 | <a name="output_server_name"></a> [server_name](#output\_server\_name) | Return server name |
 | <a name="output_server_id"></a> [server_id](#output\_server\_id) | Return server id |
+| <a name="output_server_cloud_init"></a> [server_cloud_init](#output\_server\_cloud\_init) | Return cloud init script |
 
 ## ✍️ Authors <a name = "authors"></a>
 

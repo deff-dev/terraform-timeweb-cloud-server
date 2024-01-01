@@ -24,6 +24,15 @@ variable "ssh_keys" {
   default     = null
 }
 
+variable "cloud_init" {
+  description = "Cloud-init script path to file"
+  type = object({
+    file    = string
+    vars = optional(map(string))
+  })
+  default = null
+}
+
 variable "location" {
   description = "Location for the server (ru-1, ru-2, pl-1, kz-1)"
   type        = string

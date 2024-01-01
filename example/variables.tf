@@ -21,6 +21,11 @@ variable "servers" {
 
     ssh_keys = optional(list(string))
 
+    cloud_init = optional(object({
+      file = string
+      vars = optional(map(string))
+    }))
+
     configurator = optional(object({
       cpu  = number
       ram  = number

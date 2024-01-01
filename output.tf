@@ -17,3 +17,8 @@ output "server_id" {
   description = "Return server id"
   value       = twc_server.default.id
 }
+
+output "server_cloud_init" {
+  description = "Return cloud init script"
+  value       = twc_server.default.cloud_init
+}
