@@ -1,5 +1,6 @@
 variable "servers" {
   type = map(object({
+    project_name  = optional(string)
     location      = optional(string)
     cpu_frequency = optional(number)
     disk_type     = optional(string)
