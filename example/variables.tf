@@ -21,6 +21,10 @@ variable "servers" {
 
     ssh_keys = optional(list(string))
 
+    ssh_keys_paths = optional(list(object({
+      name = string
+      path = string
+    })))
     cloud_init = optional(object({
       file = string
       vars = optional(map(string))

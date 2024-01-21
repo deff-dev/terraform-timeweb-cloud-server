@@ -13,4 +13,5 @@ module "server" {
   configurator = each.value.configurator
   ssh_keys      = each.value.ssh_keys
   cloud_init = each.value.cloud_init
+  ssh_keys_paths = each.value.ssh_keys_paths
 }
