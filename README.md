@@ -40,9 +40,9 @@ Terraform module which creates server on TimeWeb Cloud
 #
 
 module "server" {
-  source = "git@github.com:deff-dev/terraform-timeweb-server.git"
+  source = "https://github.com/deff-dev/terraform-timeweb-cloud-server.git"
 
-  name = "Single-preset"
+  name         = "Single-preset"
   project_name = "Общий проект"
   os = {
     name    = "ubuntu"
@@ -101,9 +101,9 @@ provider "twc" {
 #
 
 module "server" {
-  source = "git@github.com:deff-dev/terraform-timeweb-server.git"
+  source = "https://github.com/deff-dev/terraform-timeweb-cloud-server.git"
 
-  name = "Single-configurator"
+  name         = "Single-configurator"
   project_name = "Общий проект"
   os = {
     name    = "ubuntu"
