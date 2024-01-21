@@ -65,7 +65,6 @@ resource "twc_server" "default" {
 
   preset_id = local.preset_id
 
-  os_id = data.twc_os.default.id
   os_id      = data.twc_os.default.id
   project_id = local.project_id
 
