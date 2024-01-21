@@ -4,6 +4,7 @@ module "server" {
   source = "../"
 
   name          = each.key
+  project_name  = each.value.project_name
   os            = each.value.os
   location      = each.value.location
   cpu_frequency = each.value.cpu_frequency

@@ -43,6 +43,7 @@ module "server" {
   source = "git@github.com:deff-dev/terraform-timeweb-server.git"
 
   name = "Single-preset"
+  project_name = "Общий проект"
   os = {
     name    = "ubuntu"
     version = "22.04"
@@ -103,6 +104,7 @@ module "server" {
   source = "git@github.com:deff-dev/terraform-timeweb-server.git"
 
   name = "Single-configurator"
+  project_name = "Общий проект"
   os = {
     name    = "ubuntu"
     version = "22.04"
@@ -184,6 +186,7 @@ No modules.
 | [twc_presets.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/presets) | data source |
 | [twc_configurator.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/configurator) | data source |
 | [twc_ssh_keys.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/ssh_keys) | data source |
+| [twc_projects.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/projects) | data source |
 
 ## 📥 Inputs <a name = "inputs"></a>
 
@@ -191,6 +194,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_timeweb_token"></a> [timeweb\_token](#input\_timeweb\_token) | TimeWeb Token | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name for server | `string` | `"Managed by terraform"` | yes |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of existing project | `string` | `null` | no |
 | <a name="input_os"></a> [os](#input\_os) | Information about specified OS | `object` |  <pre>{<br>  "name": "ubuntu",<br>  "version": "22.04" <br>}</pre> | yes |
 | <a name="input_location"></a> [location](#input\_location) | Location for the server (ru-1, ru-2, pl-1, kz-1)| `string` | `null` | no |
 | <a name="input_cpu_frequency"></a> [cpu\_frequency](#input\_cpu\_frequency) | Current CPU frequency of server (2.8, 3.3, 5) | `number` | `3.3` | no |

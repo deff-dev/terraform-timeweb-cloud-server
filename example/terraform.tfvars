@@ -1,5 +1,6 @@
 servers = {
   server_with_preset = {
+    project_name  = "Общий проект"
     location      = "ru-1",
     cpu_frequency = 3.3,
     disk_type     = "nvme",
@@ -37,6 +38,7 @@ servers = {
     }
   }
   server_with_configurator = {
+    project_name  = "Общий проект"
     location      = "ru-1",
     cpu_frequency = 3.3,
     disk_type     = "nvme",

@@ -5,6 +5,12 @@ variable "timeweb_token" {
   default     = null
 }
 
+variable "project_name" {
+  description = "Name of existing project"
+  type        = string
+  default     = null
+}
+
 variable "name" {
   description = "Server name"
   type        = string
