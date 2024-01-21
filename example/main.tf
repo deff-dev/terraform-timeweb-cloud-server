@@ -9,8 +9,9 @@ module "server" {
   cpu_frequency = each.value.cpu_frequency
   disk_type     = each.value.disk_type
 
-  preset        = each.value.preset
-  configurator = each.value.configurator
-  ssh_keys      = each.value.ssh_keys
-  cloud_init = each.value.cloud_init
+  preset         = each.value.preset
+  configurator   = each.value.configurator
+  ssh_keys       = each.value.ssh_keys
+  ssh_keys_paths = each.value.ssh_keys_paths
+  cloud_init     = each.value.cloud_init
 }

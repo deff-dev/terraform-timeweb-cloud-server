@@ -18,6 +18,16 @@ servers = {
       version = "22.04"
     }
     ssh_keys = ["key_name_1", "key_name_2"]
+    ssh_keys_paths = [
+      {
+        name = "key1"
+        path = "/local/path/to/key1.pub"
+      },
+      {
+        name = "key2"
+        path = "/local/path/to/key2.pub"
+      }
+    ]
     cloud_init = {
       file = "cloud_init.tftpl"
       vars = {

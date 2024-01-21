@@ -64,6 +64,17 @@ module "server" {
 
   ssh_keys = ["key_name_1", "key_name_2"]
 
+  ssh_keys_paths = [
+    {
+      name = "key1"
+      path = "/local/path/to/key1.pub"
+    },
+    {
+      name = "key2"
+      path = "/local/path/to/key2.pub"
+    }
+  ]
+
   cloud_init = {
     file = "cloud_init.tftpl"
     vars = {
@@ -98,6 +109,17 @@ module "server" {
   }
 
   ssh_keys = ["key_name_1", "key_name_2"]
+
+  ssh_keys_paths = [
+    {
+      name = "key1"
+      path = "/local/path/to/key1.pub"
+    },
+    {
+      name = "key2"
+      path = "/local/path/to/key2.pub"
+    }
+  ]
 
   cloud_init = {
     file = "cloud_init.tftpl"
@@ -139,6 +161,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [twc_server.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/resources/server) | resource |
+| [twc_ssh_key.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/resources/ssh_key) | resource |
 | [twc_os.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/os) | data source |
 | [twc_presets.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/presets) | data source |
 | [twc_configurator.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/configurator) | data source |
@@ -156,6 +179,7 @@ No modules.
 | <a name="input_preset"></a> [preset](#input\_preset) | Settings for the server with preset | `object` | `null` | no |
 | <a name="input_configurator"></a> [configurator](#input\_configurator) | Settings for the server with configurator | `object` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | List of names SSH Keys for server | `list(string)` | `null` | no |
+| <a name="input_ssh_keys_paths"></a> [ssh\_keys\_paths](#input\_ssh\_keys\_paths) | Local paths of SSH Keys for server | `list(object)` | `null` | no |
 | <a name="input_cloud_init"></a> [cloud\_init](#input\_cloud\_init) | Cloud-init script | `object` | `null` | no |
 
 ## 📤 Outputs <a name = "outputs"></a>

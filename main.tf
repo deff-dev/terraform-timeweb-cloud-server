@@ -1,9 +1,10 @@
 locals {
   preset_id       = try(data.twc_presets.default[0].id, null)
   configurator_id = try(data.twc_configurator.default[0].id, null)
-  ssh_keys_ids    = [for key in data.twc_ssh_keys.default : key.id]
+  ssh_keys_ids    = concat([for key in data.twc_ssh_keys.default : key.id], [for key in twc_ssh_key.default : key.id])
   cloud_init      = var.cloud_init == null ? "" : templatefile(var.cloud_init.file, local.cloud_init_vars)
   cloud_init_vars = try(var.cloud_init.vars == null ? {} : var.cloud_init.vars, {})
+  ssh_keys_paths  = try({ for key, value in var.ssh_keys_paths : key => value }, null)
 }
 
 data "twc_os" "default" {
@@ -44,6 +45,13 @@ data "twc_configurator" "default" {
   location      = var.location
   cpu_frequency = var.cpu_frequency
   disk_type     = var.disk_type
+}
+
+resource "twc_ssh_key" "default" {
+  count = local.ssh_keys_paths != null ? length(local.ssh_keys_paths) : 0
+
+  name = local.ssh_keys_paths[count.index].name
+  body = file(local.ssh_keys_paths[count.index].path)
 }
 
 resource "twc_server" "default" {

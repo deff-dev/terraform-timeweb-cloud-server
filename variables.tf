@@ -24,10 +24,19 @@ variable "ssh_keys" {
   default     = null
 }
 
+variable "ssh_keys_paths" {
+  description = "Local paths of SSH Keys for server"
+  type = list(object({
+    name = string
+    path = string
+  }))
+  default = null
+}
+
 variable "cloud_init" {
   description = "Cloud-init script path to file"
   type = object({
-    file    = string
+    file = string
     vars = optional(map(string))
   })
   default = null
