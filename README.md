@@ -82,6 +82,15 @@ module "server" {
       php_version = 8.2
     }
   }
+
+  providers = {
+    twc = twc.default
+  }
+}
+
+provider "twc" {
+  token = "token"
+  alias = "default"
 }
 ```
 
@@ -128,6 +137,15 @@ module "server" {
       php_version = 8.2
     }
   }
+
+  providers = {
+    twc = twc.default
+  }
+}
+
+provider "twc" {
+  token = "token"
+  alias = "default"
 }
 ```
 
@@ -171,6 +189,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_timeweb_token"></a> [timeweb\_token](#input\_timeweb\_token) | TimeWeb Token | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name for server | `string` | `"Managed by terraform"` | yes |
 | <a name="input_os"></a> [os](#input\_os) | Information about specified OS | `object` |  <pre>{<br>  "name": "ubuntu",<br>  "version": "22.04" <br>}</pre> | yes |
 | <a name="input_location"></a> [location](#input\_location) | Location for the server (ru-1, ru-2, pl-1, kz-1)| `string` | `null` | no |

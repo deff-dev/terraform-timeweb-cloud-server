@@ -1,3 +1,10 @@
+variable "timeweb_token" {
+  description = "TimeWebCloud Token"
+  type        = string
+  nullable    = true
+  default     = null
+}
+
 variable "name" {
   description = "Server name"
   type        = string

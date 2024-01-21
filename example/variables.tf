@@ -39,3 +39,10 @@ variable "servers" {
 
   default = {}
 }
+
+variable "timeweb_token" {
+  description = "TimeWebCloud Token"
+  type        = string
+  nullable    = true
+  default     = null
+}

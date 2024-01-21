@@ -51,3 +51,4 @@ servers = {
     }
   }
 }
+timeweb_token = "token"
