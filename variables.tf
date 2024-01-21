@@ -1,3 +1,16 @@
+variable "timeweb_token" {
+  description = "TimeWebCloud Token"
+  type        = string
+  nullable    = true
+  default     = null
+}
+
+variable "project_name" {
+  description = "Name of existing project"
+  type        = string
+  default     = null
+}
+
 variable "name" {
   description = "Server name"
   type        = string
@@ -24,10 +37,19 @@ variable "ssh_keys" {
   default     = null
 }
 
+variable "ssh_keys_paths" {
+  description = "Local paths of SSH Keys for server"
+  type = list(object({
+    name = string
+    path = string
+  }))
+  default = null
+}
+
 variable "cloud_init" {
   description = "Cloud-init script path to file"
   type = object({
-    file    = string
+    file = string
     vars = optional(map(string))
   })
   default = null

@@ -40,9 +40,10 @@ Terraform module which creates server on TimeWeb Cloud
 #
 
 module "server" {
-  source = "git@github.com:deff-dev/terraform-timeweb-server.git"
+  source = "https://github.com/deff-dev/terraform-timeweb-cloud-server.git"
 
-  name = "Single-preset"
+  name         = "Single-preset"
+  project_name = "Общий проект"
   os = {
     name    = "ubuntu"
     version = "22.04"
@@ -64,6 +65,17 @@ module "server" {
 
   ssh_keys = ["key_name_1", "key_name_2"]
 
+  ssh_keys_paths = [
+    {
+      name = "key1"
+      path = "/local/path/to/key1.pub"
+    },
+    {
+      name = "key2"
+      path = "/local/path/to/key2.pub"
+    }
+  ]
+
   cloud_init = {
     file = "cloud_init.tftpl"
     vars = {
@@ -71,6 +83,15 @@ module "server" {
       php_version = 8.2
     }
   }
+
+  providers = {
+    twc = twc.default
+  }
+}
+
+provider "twc" {
+  token = "token"
+  alias = "default"
 }
 ```
 
@@ -80,9 +101,10 @@ module "server" {
 #
 
 module "server" {
-  source = "git@github.com:deff-dev/terraform-timeweb-server.git"
+  source = "https://github.com/deff-dev/terraform-timeweb-cloud-server.git"
 
-  name = "Single-configurator"
+  name         = "Single-configurator"
+  project_name = "Общий проект"
   os = {
     name    = "ubuntu"
     version = "22.04"
@@ -99,6 +121,17 @@ module "server" {
 
   ssh_keys = ["key_name_1", "key_name_2"]
 
+  ssh_keys_paths = [
+    {
+      name = "key1"
+      path = "/local/path/to/key1.pub"
+    },
+    {
+      name = "key2"
+      path = "/local/path/to/key2.pub"
+    }
+  ]
+
   cloud_init = {
     file = "cloud_init.tftpl"
     vars = {
@@ -106,6 +139,15 @@ module "server" {
       php_version = 8.2
     }
   }
+
+  providers = {
+    twc = twc.default
+  }
+}
+
+provider "twc" {
+  token = "token"
+  alias = "default"
 }
 ```
 
@@ -139,16 +181,20 @@ No modules.
 | Name | Type |
 |------|------|
 | [twc_server.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/resources/server) | resource |
+| [twc_ssh_key.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/resources/ssh_key) | resource |
 | [twc_os.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/os) | data source |
 | [twc_presets.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/presets) | data source |
 | [twc_configurator.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/configurator) | data source |
 | [twc_ssh_keys.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/ssh_keys) | data source |
+| [twc_projects.default](https://registry.terraform.io/providers/timeweb-cloud/timeweb-cloud/latest/docs/data-sources/projects) | data source |
 
 ## 📥 Inputs <a name = "inputs"></a>
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_timeweb_token"></a> [timeweb\_token](#input\_timeweb\_token) | TimeWeb Token | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name for server | `string` | `"Managed by terraform"` | yes |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of existing project | `string` | `null` | no |
 | <a name="input_os"></a> [os](#input\_os) | Information about specified OS | `object` |  <pre>{<br>  "name": "ubuntu",<br>  "version": "22.04" <br>}</pre> | yes |
 | <a name="input_location"></a> [location](#input\_location) | Location for the server (ru-1, ru-2, pl-1, kz-1)| `string` | `null` | no |
 | <a name="input_cpu_frequency"></a> [cpu\_frequency](#input\_cpu\_frequency) | Current CPU frequency of server (2.8, 3.3, 5) | `number` | `3.3` | no |
@@ -156,6 +202,7 @@ No modules.
 | <a name="input_preset"></a> [preset](#input\_preset) | Settings for the server with preset | `object` | `null` | no |
 | <a name="input_configurator"></a> [configurator](#input\_configurator) | Settings for the server with configurator | `object` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | List of names SSH Keys for server | `list(string)` | `null` | no |
+| <a name="input_ssh_keys_paths"></a> [ssh\_keys\_paths](#input\_ssh\_keys\_paths) | Local paths of SSH Keys for server | `list(object)` | `null` | no |
 | <a name="input_cloud_init"></a> [cloud\_init](#input\_cloud\_init) | Cloud-init script | `object` | `null` | no |
 
 ## 📤 Outputs <a name = "outputs"></a>
