@@ -14,4 +14,13 @@ module "server" {
   ssh_keys       = each.value.ssh_keys
   ssh_keys_paths = each.value.ssh_keys_paths
   cloud_init     = each.value.cloud_init
+
+  providers = {
+    twc = twc.default
+  }
+}
+
+provider "twc" {
+  token = var.timeweb_token
+  alias = "default"
 }
